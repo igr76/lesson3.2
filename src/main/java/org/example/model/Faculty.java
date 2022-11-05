@@ -1,9 +1,14 @@
 package org.example.model;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import java.util.Objects;
-
+@Entity
 public class Faculty {
-
+@Id
+@GeneratedValue
     private long id;
     private String name, color;
 

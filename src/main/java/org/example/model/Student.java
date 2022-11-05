@@ -1,9 +1,15 @@
 package org.example.model;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import java.util.Objects;
-
+@Entity
 public class Student {
-
+    @javax.persistence.Id
+    @Id
+@GeneratedValue
     private long id;
     private String name;
     private int age;
@@ -41,9 +47,6 @@ public class Student {
                 '}';
     }
 
-    public long getId() {
-        return id;
-    }
 
     public void setId(long id) {
         this.id = id;
@@ -63,5 +66,13 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

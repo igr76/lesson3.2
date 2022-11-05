@@ -3,31 +3,30 @@ package org.example.service;
 import java.util.HashMap;
 
 import org.example.model.Student;
+import org.example.repository.StudentRepository;
 
 public class StudentService {
-    private final HashMap<Long, Student> students =new HashMap<>();
+   private final StudentRepository studentRepository;
 
-    private long count = 0;
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
 
     public Student addStudent(Student student) {
-        student.setId(count++);
-        students.put(student.getId(), student);
-        return student;
+                return studentRepository.save(student);
     }
 
     public Student findStudent(long id) {
-        return students.get(id);
+        return studentRepository.findById(id).get();
     }
 
-    public Student editStudent(long id, Student student) {
-        if (!students.containsKey(id)) {
-            return null;
-        }
-        students.put(id, student);
-        return student;
+    public Student editStudent( Student student) {
+
+        return studentRepository.save(student);
     }
 
-    public Student deleteStudent(long id) {
-        return students.remove(id);
+    public void deleteStudent(long id) {
+         studentRepository.deleteById(id);
     }
 }
