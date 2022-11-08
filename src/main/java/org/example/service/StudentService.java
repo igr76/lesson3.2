@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 import org.example.model.Student;
 import org.example.repository.StudentRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StudentService {
    private final StudentRepository studentRepository;
 

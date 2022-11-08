@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import java.util.Objects;
 @Entity
 public class Faculty {
-@Id
+
+    @javax.persistence.Id
+    @Id
 @GeneratedValue
     private long id;
     private String name, color;
@@ -45,9 +47,6 @@ public class Faculty {
                 '}';
     }
 
-    public long getId() {
-        return id;
-    }
 
     public void setId(long id) {
         this.id = id;
@@ -67,6 +66,17 @@ public class Faculty {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
 
