@@ -1,17 +1,13 @@
 package org.example.controller;
 
+import org.example.model.Faculty;
 import org.example.model.Student;
 import org.example.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/student")
@@ -23,6 +19,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    // info of student
     @GetMapping("{id}")
     public ResponseEntity<Student> getStudentInfo(@PathVariable Long id) {
         Student student = studentService.findStudent(id);
@@ -31,12 +28,13 @@ public class StudentController {
         }
         return ResponseEntity.ok(student);
     }
-
+     // create student
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
     }
 
+    //changes by student
     @PutMapping
     public ResponseEntity<Student> editStudent(@PathVariable Long id,@RequestBody Student student) {
         Student foundStudent = studentService.editStudent(student);
@@ -46,10 +44,14 @@ public class StudentController {
         return ResponseEntity.ok(foundStudent);
     }
 
+    // delete student
     @DeleteMapping
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
         return ResponseEntity.ok().build();
     }
+
+
+
 
 }

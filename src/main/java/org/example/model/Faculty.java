@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+import java.util.Collection;
 import java.util.Objects;
 @Entity
 public class Faculty {
@@ -13,6 +15,8 @@ public class Faculty {
 @GeneratedValue
     private long id;
     private String name, color;
+
+
 
     public Faculty() {
     }

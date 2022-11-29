@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 @Entity
 public class Student {
@@ -14,8 +15,9 @@ public class Student {
     private String name;
     private int age;
 
-    public Student() {
-    }
+
+
+    public Student() {    }
 
     public Student(long id, String name, int age) {
         this.id = id;

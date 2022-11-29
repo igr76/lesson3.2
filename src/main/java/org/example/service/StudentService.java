@@ -1,7 +1,9 @@
 package org.example.service;
 
+import java.util.Collection;
 import java.util.HashMap;
 
+import org.example.model.Faculty;
 import org.example.model.Student;
 import org.example.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -31,4 +33,8 @@ public class StudentService {
     public void deleteStudent(long id) {
          studentRepository.deleteById(id);
     }
+
+
+
+
 }
